@@ -1,0 +1,21 @@
+commit 5b8340652e957007682c61834b3565b163d19aee (HEAD -> main, origin/main, origin/HEAD)
+Author: afreenshakeel24 <afreen.ubc@gmail.com>
+Date:   Sat Dec 5 02:49:05 2020 +0530
+
+    memes added for traditional
+
+commit 3b99a7a1e968cde0ea2b007ab69e62e43367fa44
+Author: afreenshakeel24 <afreen.ubc@gmail.com>
+Date:   Sat Dec 5 02:48:05 2020 +0530
+
+    memes added for traditional
+
+commit b5b5dbe387244d01ef2e3f5d1f8bbdf19e172ef3
+Author: achooramani <achooramani@gmail.com>
+Date:   Fri Dec 4 23:46:16 2020 +0530
+
+    Final
+
+commit c3cb4d8f2e44680c5f636b7f17cd446bd695eba9
+Author: afreenshakeel24 <afreen.ubc@gmail.com>
+Date:   Fri Dec 4 16:30:25 2020 +0530
