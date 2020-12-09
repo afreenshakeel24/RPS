@@ -23,7 +23,7 @@ def tearDown_class(Testplaythisgame):
     self.a = None
     self.b = None
         
-class Testplaythisgame(unittest.TestCase):# test class
+class Testplaythisgame2(unittest.TestCase):# test class
     def setUp(self):
         self.a = playthisgame.Maingame()
         self.b = playthisgame.Maingame()
