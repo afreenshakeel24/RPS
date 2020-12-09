@@ -19,23 +19,27 @@ import time
 
 class Maingame:
     def __init__(self):
-        self.models = ['Enter 0 to choose Traditional version', 'Enter 73 to choose Sheldon Cooper\'s version']
+        self.models = []
+        self.x = "Loading Traditional version..."
+        self.y = "Loading Sheldon's version..."
+        self.z = "YOU HAD ONE TINY JOB \n"
     def display(self): 
-        print('You have to choose from: ') 
+        print('You have to choose between 0 and 73. Enter 0 to choose the Traditional version or enter 73 to choose Sheldon Cooper\'s version ')
         for model in self.models:
             print('%s ' % model)
         time.sleep(2)
+        #x = "Loading Traditional version..."
         i = input("Player chooses :")
         if i == '0':
-            print("Loading Tradtional version...")
+            print(self.x)
             time.sleep(3)
             rpsgame.rpsgame.game_rps(self)
         elif i == '73':
-            print("Loading Sheldon's version...")
+            print(self.y)
             time.sleep(3)
             rpsgame_sheldon.rpsgame_sheldon.game_rps_sheldon(self)
         else: 
-            print("YOU HAD ONE TINY JOB \n")
+            print(self.z)
         
 # -
 
