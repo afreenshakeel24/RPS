@@ -24,7 +24,7 @@ class rpsgame(rpshelp):
     def __init__(self):
         rpshelp.__init__(self)
     def display(self):
-        rpshelp.display(self)
+        rpshelp.display_(self)
     def game_rps(self):
         print()
         
@@ -51,7 +51,7 @@ class rpsgame(rpshelp):
             if ins.lower() == "yes":
                 print("Loading instructions...")
                 time.sleep(2)
-                rpshelp.display(self)
+                rpshelp.display_(self)
             elif ins.lower() == "no":
                 pass
             else: 

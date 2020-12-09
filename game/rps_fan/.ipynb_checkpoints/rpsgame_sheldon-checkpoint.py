@@ -24,7 +24,7 @@ class rpsgame_sheldon(rpshelp_sheldon):
     def __init__(self):
         rpshelp_sheldon.__init__(self)
     def display(self):
-        rpshelp_sheldon.display(self)
+        rpshelp_sheldon.display_sheldon(self)
     def game_rps_sheldon(self):
         print()
         
@@ -50,7 +50,7 @@ class rpsgame_sheldon(rpshelp_sheldon):
                 
                 print("Loading instructions...")
                 time.sleep(3)
-                rpshelp_sheldon.display(self)
+                rpshelp_sheldon.display_sheldon(self)
             elif ins.lower() == "no":
                 pass
             else: 
