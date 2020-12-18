@@ -34,7 +34,7 @@ class Maingame:
         self.y = "Loading Sheldon's version..."
         self.z = "YOU HAD ONE TINY JOB \n"
     def display(self): 
-        print('You have to choose between 0 and 73. Enter 0 to choose the Traditional version or enter 73 to choose Sheldon Cooper\'s version ')
+        print('You have to choose either 0 or 73. Enter 0 to choose the Traditional version or enter 73 to choose Sheldon Cooper\'s version ')
         for model in self.models:
             print('%s ' % model)
         time.sleep(2)
@@ -60,6 +60,13 @@ class Maingame:
             plt.show()
             #One_Job image code ends here
             
+            # Song code starts here
+            filename = 'Audio/StopWhatTheHellAreYouTalkingAbout.wav'
+            wave_obj = sa.WaveObject.from_wave_file(filename)
+            play_obj = wave_obj.play()
+            play_obj.wait_done()  # Wait until sound has finished playing
+            # Song code ends here
+            
         except ValueError:
             print(self.z)
             #One_Job image code starts here
@@ -68,6 +75,13 @@ class Maingame:
             plt.axis('off')
             plt.show()
             #One_Job image code ends here
+            
+            # Song code starts here
+            filename = 'Audio/StopWhatTheHellAreYouTalkingAbout.wav'
+            wave_obj = sa.WaveObject.from_wave_file(filename)
+            play_obj = wave_obj.play()
+            play_obj.wait_done()  # Wait until sound has finished playing
+            # Song code ends here
             
         
 # -
