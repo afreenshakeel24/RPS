@@ -19,6 +19,10 @@ import os
 import image
 import cv2
 import matplotlib.pyplot as plt
+import simpleaudio as sa
+
+class MyInputError(Exception):
+    pass
 
 class rpsgame(rpshelp):
     def __init__(self):
@@ -46,15 +50,17 @@ class rpsgame(rpshelp):
         while True:
             #Code to print instructions starts here
             
-            ins = input("Do you want to see the instructions? Type yes or no :")
-            
-            if ins.lower() == "yes":
-                print("Loading instructions...")
-                time.sleep(2)
-                rpshelp.display_(self)
-            elif ins.lower() == "no":
-                pass
-            else: 
+            try: 
+                ins = int(input("Do you want to see the instructions? Type 1 for yes or 0 for no :"))
+                if ins == 1:
+                    print("Loading instructions...")
+                    time.sleep(2)
+                    rpshelp.display_(self)
+                elif ins == 0:
+                    pass
+                else:
+                    raise MyInputError()
+            except MyInputError:
                 print()
                 #One_Job image code starts here
                 One_Job = cv2.imread("Images/One_Job.png")
@@ -62,7 +68,16 @@ class rpsgame(rpshelp):
                 plt.axis('off')
                 plt.show()
                 #One_Job image code ends here
-                continue
+                break
+            except ValueError:
+                print()
+                #One_Job image code starts here
+                One_Job = cv2.imread("Images/One_Job2.png")
+                plt.imshow(cv2.cvtColor(One_Job, cv2.COLOR_BGR2RGB))
+                plt.axis('off')
+                plt.show()
+                #One_Job image code ends here
+                break
             time.sleep(2)
             #Code to print instructions ends here
             
@@ -80,16 +95,19 @@ class rpsgame(rpshelp):
             print("Enter \"exit\" to quit")
             print("--------------------------------------")
             time.sleep(2)
-            inp = input("Enter your move : ")
-            if inp.lower() == "exit":
-                break  
-            elif inp.lower() == "rock":
-                player_move = 0
-            elif inp.lower() == "paper":
-                player_move = 1    
-            elif inp.lower() == "scissors":
-                player_move = 2
-            else:
+            try:
+                inp = input("Enter your move : ")
+                if inp.lower() == "exit":
+                    break  
+                elif inp.lower() == "rock":
+                    player_move = 0
+                elif inp.lower() == "paper":
+                    player_move = 1    
+                elif inp.lower() == "scissors":
+                    player_move = 2
+                else:
+                    raise ValueError()
+            except ValueError:
                 print("TYPE IT PROPERLY. \n") 
                 #Rocket_Science code starts here
                 Rocket_Science = cv2.imread("Images/Rocket_Science.png")
@@ -130,6 +148,13 @@ class rpsgame(rpshelp):
                 plt.axis('off')
                 plt.show()
                 #Player Rock loses image code ends here
+                
+                # Song code starts here
+                filename = 'Audio/OhNo.wav'
+                wave_obj = sa.WaveObject.from_wave_file(filename)
+                play_obj = wave_obj.play()
+                play_obj.wait_done()  # Wait until sound has finished playing
+                # Song code ends here
              
             #Player Paper; Computer Rock
             elif player_move == 1 and comp_move == 0: 
@@ -153,6 +178,13 @@ class rpsgame(rpshelp):
                 plt.show()
                 #Player Scissor loses image code ends here
                 
+                # Song code starts here
+                filename = 'Audio/OhNo.wav'
+                wave_obj = sa.WaveObject.from_wave_file(filename)
+                play_obj = wave_obj.play()
+                play_obj.wait_done()  # Wait until sound has finished playing
+                # Song code ends here
+                
             #Player Rock; Computer Scissor    
             elif player_move == 0 and comp_move == 2: 
                 print("PLAYER WINS \n\n")
@@ -175,6 +207,13 @@ class rpsgame(rpshelp):
                 plt.show()
                 #Player Paper loses image code ends here
                 
+                # Song code starts here
+                filename = 'Audio/OhNo.wav'
+                wave_obj = sa.WaveObject.from_wave_file(filename)
+                play_obj = wave_obj.play()
+                play_obj.wait_done()  # Wait until sound has finished playing
+                # Song code ends here
+                
             elif player_move == 2 and comp_move == 1: 
                 print("PLAYER WINS \n\n")
                 
@@ -189,3 +228,4 @@ class rpsgame(rpshelp):
             time.sleep(6)
             print()
             #Winner code ends here
+            
