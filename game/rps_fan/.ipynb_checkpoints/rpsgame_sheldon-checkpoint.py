@@ -88,7 +88,7 @@ class rpsgame_sheldon(rpshelp_sheldon):
             plt.imshow(cv2.cvtColor(Ready_Steady_Go, cv2.COLOR_BGR2RGB))
             plt.axis('off')
             plt.show()
-            #Ready Steady Go image code ends here
+            #Ready Steady Go image code ends here now
                 
             print("Enter \"Rock\",\"Paper\",\"Scissors\",\"Lizard\",\"Spock\" to play")
             print("Enter \"exit\" to quit")
