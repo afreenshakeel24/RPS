@@ -20,6 +20,9 @@ import image
 import cv2
 import matplotlib.pyplot as plt
 
+class MyInputError(Exception):
+    pass
+
 class rpsgame_sheldon(rpshelp_sheldon):
     def __init__(self):
         rpshelp_sheldon.__init__(self)
@@ -45,24 +48,35 @@ class rpsgame_sheldon(rpshelp_sheldon):
         
         while True:
             #Code to print instructions starts here
-            ins = input("Do you want to see the instructions? Type yes or no :")
-            if ins.lower() == "yes":
-                
-                print("Loading instructions...")
-                time.sleep(3)
-                rpshelp_sheldon.display_sheldon(self)
-            elif ins.lower() == "no":
-                pass
-            else: 
+            
+            try: 
+                ins = int(input("Do you want to see the instructions? Type 1 for yes or 0 for no :"))
+                if ins == 1:
+                    print("Loading instructions...")
+                    time.sleep(2)
+                    rpshelp.display_(self)
+                elif ins == 0:
+                    pass
+                else:
+                    raise MyInputError()
+            except MyInputError:
                 print()
-                
                 #One_Job image code starts here
                 One_Job = cv2.imread("Images/One_Job.png")
                 plt.imshow(cv2.cvtColor(One_Job, cv2.COLOR_BGR2RGB))
                 plt.axis('off')
                 plt.show()
                 #One_Job image code ends here
-                continue
+                break
+            except ValueError:
+                print()
+                #One_Job image code starts here
+                One_Job = cv2.imread("Images/One_Job2.png")
+                plt.imshow(cv2.cvtColor(One_Job, cv2.COLOR_BGR2RGB))
+                plt.axis('off')
+                plt.show()
+                #One_Job image code ends here
+                break
             time.sleep(2)
             #Code to print instructions ends here
             
@@ -80,21 +94,24 @@ class rpsgame_sheldon(rpshelp_sheldon):
             print("Enter \"exit\" to quit")
             print("--------------------------------------")
             time.sleep(2)
-            inp = input("Enter your move : ")
-            if inp.lower() == "exit":
-                break  
-            elif inp.lower() == "rock":
-                player_move = 0
-            elif inp.lower() == "paper":
-                player_move = 1    
-            elif inp.lower() == "scissors":
-                player_move = 2
-            elif inp.lower() == "lizard":
-                player_move = 3
-            elif inp.lower() == "spock":
-                player_move = 4
+            try:
+                inp = input("Enter your move : ")
+                if inp.lower() == "exit":
+                    break  
+                elif inp.lower() == "rock":
+                    player_move = 0
+                elif inp.lower() == "paper":
+                    player_move = 1    
+                elif inp.lower() == "scissors":
+                    player_move = 2
+                elif inp.lower() == "lizard":
+                    player_move = 3
+                elif inp.lower() == "spock":
+                    player_move = 4
+                else:
+                    raise ValueError()
             
-            else:
+            except ValueError:
                 print("TYPE IT PROPERLY. \n") 
                 #Rocket_Science code starts here
                 Rocket_Science = cv2.imread("Images/Rocket_Science.png")
